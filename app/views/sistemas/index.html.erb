@@ -1,0 +1,31 @@
+<div class="content">
+	<table id="list2"></table> 
+	<div id="pager2"></div>
+	<br />
+	<a class="ui inverted segment button icon globe" href="<%= new_sistema_path%>" >Novo Sistema</a>
+</div>
+
+<script>
+jQuery("#list2").jqGrid({ 
+	url:'<%= sistemas_path%>', 
+	datatype: "json", 
+	colNames:['id', 'Codigo','Nome Abreviado', 'Nome Completo', 'Ativo'  ], 
+	colModel:[ 
+		{name:'id',index:'id', width:95}, 
+		{name:'Codigo',index:'Codigo', width:80, jsonmap:"codigo"}, 
+		{name:'NomeAbreviado',index:'NomeAbreviado', width:150, align: 'center', jsonmap:"nomeabreviado"}, 
+		{name:'NomeCompleto',index:'NomeCompleto', width:350, jsonmap:"nomecompleto"}, 
+		{name:'Ativo',index:'Ativo', width:150, align: 'center', formatter: 'checkbox', sortable:false, jsonmap:"ativo"} ], 
+	rowNum:10, 
+	rowList:[10,20,30], 
+	pager: '#pager2', 
+	sortname: 'id', 
+	viewrecords: true, 
+	sortorder: "desc", 
+	width:700,
+	height:350,
+	caption:"JSON - Lista de Sistemas" 
+}); 
+
+jQuery("#list2").jqGrid('navGrid','#pager2',{edit:false,add:false,del:false});
+</script>

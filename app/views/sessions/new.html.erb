@@ -1,0 +1,35 @@
+<div class="content">
+		<div class="ui vertical segment sauda right">
+			<h3 class="ui teal header">Já te um cadastro? Faça login agora mesmo :) </h3>
+			<p id="error" style="color: red"><%= flash[:errorLogin] %></p>
+			<p id="error" style="color: red">
+				<% if !flash[:messages].nil? %>
+					<ul>
+						<% flash[:messages].each do |message| %>
+							<li><%= message %></li>
+						<% end %>
+					</ul>
+				<% end %>
+			</p>
+			<form method="post" action="<%= sessions_path %>">
+				<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+				<div class="ui form segment">
+					<div class="field">
+						<label>Email</label>
+						<div class="ui left labeled icon input">
+							<input type="text" name="user[email]" placeholder="E-mail" />
+							<i class="user icon"></i>
+						</div>
+					</div>
+					<div class="field">
+						<label>Senha</label>
+						<div class="ui left labeled icon input">
+							<input type="password" name="user[senha]" placeholder="Senha" />
+							<i class="lock icon"></i>
+						</div>
+					</div>
+					<input type="submit" class="ui tiny teal submit button rigth" value="Entrar" />
+				</div>
+			</form>
+		</div>
+</div>

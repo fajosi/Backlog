@@ -1,0 +1,50 @@
+<div class="content">
+		<div class="ui vertical segment sauda right">
+			<h3 class="ui teal header">Informacoes da status do backlog</h3>
+			<p id="error" style="color: red"><%= flash[:error] %></p>
+			<p id="error" style="color: red">
+				<% if !flash[:messages].nil? %>
+					<ul>
+						<% flash[:messages].each do |message| %>
+							<li><%= message %></li>
+						<% end %>
+					</ul>
+				<% end %>
+			</p>
+
+			<form method="post" action="<%= status_index_path %>">
+				<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+				<div class="ui form segment">
+					<div class="field">
+						<label>Descricao do Status</label>
+						<div class="ui left labeled icon input">
+							<input type="text" name="status[descricao]" placeholder="Descricao do status" />
+							<i class="lock icon"></i>
+						</div>
+					</div>
+					<div class="field">
+						<label>Categorias</label>
+						<div class="ui fluid selection dropdown">
+						  <div class="text">Selecione uma Categoria</div>
+						  <i class="dropdown icon"></i>
+						  <input name="status[categoria]" type="hidden">
+						  <div class="menu">
+							<% @categorias.each do |categoria| %>
+								<div class="item" data-value="<%= categoria.id %>"><%= categoria.descricao %></div>
+							<% end %>
+						  </div>
+						</div>
+					  </div>					
+				
+					<div class="field">
+						<label>Ativo</label>
+						<div class="ui left labeled icon input">
+							<input type="checkbox" name="status[ativo]" placeholder="Ativo" />
+							<i class="lock icon"></i>
+						</div>
+					</div>
+					<input type="submit" class="ui tiny teal submit button rigth" value="Gravar" />
+				</div>
+			</form>
+		</div>
+</div>

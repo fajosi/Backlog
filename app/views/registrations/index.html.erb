@@ -1,0 +1,58 @@
+<div class="content">
+	<div class="max-size">
+		<h4 class="ui inverted black block header">
+		  Cadastrar novo usuário
+		</h4>
+
+		<div class="ui vertical segment sauda right">
+			
+
+			<h3 class="ui purple header">Ainda não tem cadastro? Increva-se agora ;) </h3>
+			
+			<p id="error" style="color: red"><%= flash[:error] %></p>
+			<p id="error" style="color: red">
+				<% if !flash[:messages].nil? %>
+					<ul>
+						<% flash[:messages].each do |message| %>
+							<li><%= message %></li>
+						<% end %>
+					</ul>
+				<% end %>
+			</p>
+			<form method="post" action="<%= registrations_path %>">
+				<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+				<div class="ui form segment">
+					<div class="field">
+						<label>Nome</label>
+						<div class="ui left labeled icon input">
+							<input type="text" name="user[nomeCompleto]" placeholder="Nome" />
+							<i class="user icon"></i>
+						</div>
+					</div>
+					<div class="field">
+						<label>Email</label>
+						<div class="ui left labeled icon input">
+							<input type="text" name="user[email]" placeholder="E-mail" />
+							<i class="user icon"></i>
+						</div>
+					</div>
+					<div class="field">
+						<label>Senha</label>
+						<div class="ui left labeled icon input">
+							<input type="password" name="user[senha]" placeholder="Senha" />
+							<i class="lock icon"></i>
+						</div>
+					</div>
+					<div class="field">
+						<label>Ativo</label>
+						<div class="ui left labeled icon input">
+							<input type="checkbox" name="user[ativo]" placeholder="Ativo" checked />
+							<i class="lock icon"></i>
+						</div>
+					</div>
+					<input type="submit" class="ui tiny purple submit button rigth" value="Cadastrar" />
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

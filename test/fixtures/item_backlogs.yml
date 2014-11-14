@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descricao: MyString
+  prioridade: 1
+  dataconclusao: 2014-11-13
+  observacao: MyString
+  sistemas: 
+  tempoestimado: 1
+  status_id: 
+  classificacao_id: 
+  user_id: 
+
+two:
+  descricao: MyString
+  prioridade: 1
+  dataconclusao: 2014-11-13
+  observacao: MyString
+  sistemas: 
+  tempoestimado: 1
+  status_id: 
+  classificacao_id: 
+  user_id: 

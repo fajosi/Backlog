@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Backlog</title>
+		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body>
+		<h4 class="ui inverted black block header">
+		  Bem vindo <%= @user.respond_to?('nomeCompleto') ? @user.nomeCompleto : "" %> ao Controle de Backlog
+		</h4>
+
+	<% if session[:user_id].present? %>
+		<div class="ui small menu">
+			<a class="active item"><i class="home icon"></i> Home</a>
+			<div class="ui dropdown item">
+				Apoio <i class="dropdown icon"></i>
+				<div class="menu">
+					<a class="item"  href="<%= categorias_path %>" >Categorias</a>
+					<a class="item"  href="<%= sistemas_path %>" >Classificacoes</a>
+					<a class="item"  href="<%= status_index_path %>" >Status</a>
+				</div>
+			</div>			
+			<div class="ui dropdown item">
+				Sistemas <i class="dropdown icon"></i>
+				<div class="menu">
+					<a class="item"  href="<%= sistemas_path %>" >Gerenciar Sistemas</a>
+					<a class="item">Russian</a>
+					<a class="item">Spanish</a>
+				</div>
+			</div>
+			<div class="ui dropdown item">
+				Backlog <i class="dropdown icon"></i>
+				<div class="menu">
+					<a class="item" href="<%= sistemas_path %>" >Gerenciar Backlogs</a>
+					<a class="item" href="<%= classificacoesbacklog_index_path %>" >Gerenciar Classificações</a>
+					<a class="item" href="<%= statusbacklog_index_path %>" >Gerenciar Status</a>
+				</div>
+			</div>
+			<a class="item"><i class="mail icon"></i> Messages</a>
+			<div class="right menu">
+				<div class="item">
+					<div class="ui icon input">
+						<input placeholder="Search..." type="text">
+						<i class="search link icon"></i>
+					</div>
+				</div>
+				<div class="item">
+					<div class="ui teal button">Sign Up</div>
+				</div>
+				<div class="item">
+					<div class="ui teal button"><a href="/sessions/destroy" data-method="delete">Logout</a></div>
+				</div>
+				
+			</div>
+		</div>
+	<% end %>
+	
+	<%= yield %>
+
+	</body>
+</html>

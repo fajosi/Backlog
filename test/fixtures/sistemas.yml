@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  codigo: 1
+  nomeabreviado: MyString
+  nomecompleto: MyString
+  ativo: false
+
+two:
+  codigo: 1
+  nomeabreviado: MyString
+  nomecompleto: MyString
+  ativo: false

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descricao: MyString
+  categorias_id: 
+  ativo: false
+
+two:
+  descricao: MyString
+  categorias_id: 
+  ativo: false

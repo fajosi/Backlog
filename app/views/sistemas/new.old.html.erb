@@ -1,0 +1,30 @@
+<div class="content">
+
+
+<table class="table table-condensed">
+  <tr>
+    <th>Id</th>
+    <th>Nome Abreviado</th>
+    <th>Nome do Sistema</th>
+    <th>Ativo</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @sistemas.each do |sistema| %>
+    <tr>
+      <td><%= sistema.id %></td>
+      <td><%= sistema.nomeabreviado %></td>
+      <td><%= sistema.nomecompleto %></td>
+      <td><%= sistema.ativo %></td>
+      <td><%= link_to 'Show', sistema_path(sistema) %></td>
+      <td><%= link_to 'Edit', edit_sistema_path(sistema) %></td>
+    </tr>
+    <% end %>
+</table>
+<br />
+
+
+
+<a class="ui inverted segment button icon globe" href="<%= new_sistema_path%>" >Novo Sistema</a>
+</div>

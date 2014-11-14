@@ -1,0 +1,31 @@
+<div class="content">
+	<h1>Categorias</h1>
+	<br />
+	<table id="list2"></table> 
+	<div id="pager2"></div>
+	<br />
+	<a class="ui inverted segment button icon globe" href="<%= new_categoria_path%>" >Nova Categoria</a>
+</div>
+
+<script>
+jQuery("#list2").jqGrid({ 
+	url:'<%= categorias_getfilter_path%>', 
+	datatype: "json", 
+	colNames:['id', 'Descrição Categoria', 'Ativo'  ], 
+	colModel:[ 
+		{name:'id',index:'id', hidden:true,  width:95}, 
+		{name:'descricao',index:'descricao', width:350, jsonmap:"descricao"}, 
+		{name:'Ativo',index:'Ativo', width:150, align: 'center', formatter: 'checkbox', sortable:false, jsonmap:"ativo"} ], 
+	rowNum:10, 
+	rowList:[10,20,30], 
+	pager: '#pager2', 
+	sortname: 'id', 
+	viewrecords: true, 
+	sortorder: "desc", 
+	width:800,
+	height:350,
+	caption:"JSON - Lista de Categorias" 
+}); 
+
+jQuery("#list2").jqGrid('navGrid','#pager2',{edit:false,add:false,del:false});
+</script>

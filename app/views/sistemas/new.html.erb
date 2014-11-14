@@ -1,0 +1,50 @@
+<div class="content">
+		<div class="ui vertical segment sauda right">
+			<h3 class="ui teal header">Informacoes do sistema</h3>
+			<p id="error" style="color: red"><%= flash[:error] %></p>
+			<p id="error" style="color: red">
+				<% if !flash[:messages].nil? %>
+					<ul>
+						<% flash[:messages].each do |message| %>
+							<li><%= message %></li>
+						<% end %>
+					</ul>
+				<% end %>
+			</p>
+
+			<form method="post" action="<%= sistemas_path %>">
+				<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+				<div class="ui form segment">
+					<div class="field">
+						<label>Codigo</label>
+						<div class="ui left labeled icon input">
+							<input type="text" name="sistema[codigo]" placeholder="Codigo" />
+							<i class="user icon"></i>
+						</div>
+					</div>
+					<div class="field">
+						<label>Nome Abreviado</label>
+						<div class="ui left labeled icon input">
+							<input type="text" name="sistema[nomeabreviado]" placeholder="Nome Abreviado" />
+							<i class="lock icon"></i>
+						</div>
+					</div>
+					<div class="field">
+						<label>Nome do Sistema</label>
+						<div class="ui left labeled icon input">
+							<input type="text" name="sistema[nomecompleto]" placeholder="Nome Nome do Sistema" />
+							<i class="lock icon"></i>
+						</div>
+					</div>
+					<div class="field">
+						<label>Ativo</label>
+						<div class="ui left labeled icon input">
+							<input type="checkbox" name="sistema[ativo]" placeholder="Nome Ativo" />
+							<i class="lock icon"></i>
+						</div>
+					</div>
+					<input type="submit" class="ui tiny teal submit button rigth" value="Gravar" />
+				</div>
+			</form>
+		</div>
+</div>

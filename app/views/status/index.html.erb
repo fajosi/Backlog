@@ -1,0 +1,34 @@
+<div class="content">
+	<h1>Gerenciador de Status</h1>
+	<br />
+	<table id="list2"></table> 
+	<div id="pager2"></div>
+	<br />
+	<a class="ui inverted segment button icon globe" href="<%= new_status_path%>" >Novo Status</a>
+</div>
+
+<script>
+jQuery("#list2").jqGrid({ 
+	url:'<%= status_getfilter_path%>', 
+	datatype: "json", 
+	caption:"JSON - Lista de Status", 
+	colNames:['id', 'Categoria',  'Descrição Status', 'Ativo'  ], 
+	colModel:[ 
+		{name:'id',index:'id', hidden:true,  width:95}, 
+		{name:'categoria',index:'categoria', width:350, jsonmap:"categoria"}, 
+		{name:'descricao',index:'descricao', width:350, jsonmap:"descricao"}, 
+		{name:'Ativo',index:'Ativo', width:150, align: 'center', formatter: 'checkbox', sortable:false, jsonmap:"ativo"} ], 
+	height:350,
+	loadonce: true,
+	pager: '#pager2', 
+	rowNum:10, 
+	rowList:[10,20,30], 
+	sortorder: "desc", 
+	sortname: 'id', 
+	viewrecords: true, 
+	width:800
+}); 
+
+jQuery("#list2").jqGrid('navGrid','#pager2',{edit:false,add:false,del:false});
+</script>
+
